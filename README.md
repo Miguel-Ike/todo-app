@@ -21,7 +21,13 @@ Puedes verificar que tienes estas herramientas instaladas ejecutando los siguien
 
 ```sh
 node --version
+```
+
+```sh
 npm --version
+```
+
+```sh
 nest --version
 ```
 
@@ -29,14 +35,21 @@ nest --version
 
 Para clonar el repositorio, abre tu terminal y ejecuta los siguientes comandos:
 
+### Usando HTTPS
+
 ```sh
-# Usando HTTPS
 git clone https://github.com/Miguel-Ike/todo-app.git
+```
 
-# Usando SSH
+### Usando SSH
+
+```sh
 git clone git@github.com:Miguel-Ike/todo-app.git
+```
 
-# Usando GitHub CLI
+### Usando GitHub CLI
+
+```sh
 gh repo clone Miguel-Ike/todo-app
 ```
 
@@ -46,6 +59,9 @@ Una vez clonado el repositorio, navega al directorio del proyecto e instala las 
 
 ```sh
 cd todo-app
+```
+
+```sh
 npm install
 ```
 
