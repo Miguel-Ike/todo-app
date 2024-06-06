@@ -5,69 +5,152 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# To-Do List API
 
-## Description
+Este proyecto es una práctica para la materia de Tecnología Web INF513-SC. Es una API para gestionar una lista de tareas, implementada utilizando NestJS.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Pre-requisitos
 
-## Installation
+Antes de comenzar, asegúrate de tener las siguientes herramientas instaladas en tu entorno local:
 
-```bash
-$ npm install
+- **Node.js** (versión 20.14.0)
+- **npm** (versión 10.8.1)
+- **NestJS CLI** (versión 10.3.2)
+
+Puedes verificar que tienes estas herramientas instaladas ejecutando los siguientes comandos en tu terminal:
+
+```sh
+node --version
+npm --version
+nest --version
 ```
 
-## Running the app
+## Clonar el Repositorio
 
-```bash
-# development
-$ npm run start
+Para clonar el repositorio, abre tu terminal y ejecuta los siguientes comandos:
 
-# watch mode
-$ npm run start:dev
+```sh
+# Usando HTTPS
+git clone https://github.com/Miguel-Ike/todo-app.git
 
-# production mode
-$ npm run start:prod
+# Usando SSH
+git clone git@github.com:Miguel-Ike/todo-app.git
+
+# Usando GitHub CLI
+gh repo clone Miguel-Ike/todo-app
 ```
 
-## Test
+## Instalación
 
-```bash
-# unit tests
-$ npm run test
+Una vez clonado el repositorio, navega al directorio del proyecto e instala las dependencias necesarias:
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```sh
+cd todo-app
+npm install
 ```
 
-## Support
+## Configuración de la Base de Datos
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Este proyecto utiliza PostgreSQL como base de datos. Asegúrate de tener PostgreSQL instalado y ejecutándose en tu entorno local. Luego, crea una base de datos para el proyecto.
 
-## Stay in touch
+Crea un archivo `.env` en la raíz del proyecto y añade la configuración de la base de datos:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+DB_DATABASE=todoapp
+```
 
-## License
+## Ejecución del Proyecto
 
-Nest is [MIT licensed](LICENSE).
+Para iniciar el servidor de desarrollo, ejecuta el siguiente comando:
+
+```sh
+npm run start
+```
+
+La API estará disponible en http://localhost:3000.
+
+## Poblar la Base de Datos con Datos de Ejemplo
+
+Puedes usar Postman o cualquier otra herramienta similar para poblar la base de datos con los datos de ejemplo proporcionados en `src/data/tasks.json`.
+
+1. Abre Postman y crea una nueva solicitud.
+2. Configura la solicitud como `POST` y establece la URL a `http://localhost:3000/tasks`.
+3. En la pestaña `Body`, selecciona `raw` y `JSON` como tipo de contenido.
+4. Copia y pega los datos de `src/data/tasks.json` en el cuerpo de la solicitud.
+5. Envía la solicitud para poblar la base de datos con los datos de ejemplo.
+
+## Endpoints Disponibles
+
+### Crear una Tarea
+
+- **URL:** `/tasks`
+- **Método:** `POST`
+- **Body:**
+
+  ```json
+  {
+    "title": "Comprar leche",
+    "description": "Comprar leche en el supermercado"
+  }
+  ```
+
+### Obtener Todas las Tareas con Paginación y Búsqueda
+
+- **URL:** `/tasks`
+- **Método:** `GET`
+- **Parámetros de Consulta:**
+  - `search` (opcional): Cadena de texto para buscar en título y descripción.
+  - `page` (opcional): Número de página.
+  - `limit` (opcional): Número de tareas por página.
+- **Ejemplo:** `http://localhost:3000/tasks?search=Comprar&page=1&limit=10`
+
+### Actualizar una Tarea
+
+- **URL:** `/tasks/:id`
+- **Método:** `PUT`
+- **Body:**
+
+  ```json
+  {
+    "title": "Título actualizado",
+    "description": "Descripción actualizada",
+    "status": "IN_PROGRESS"
+  }
+  ```
+
+#### Ejemplo
+
+```sh
+curl -X PUT http://localhost:3000/tasks/1 -H "Content-Type: application/json" -d '{
+  "status": "DONE"
+}'
+```
+
+### Eliminar una Tarea
+
+- **URL:** `/tasks/:id`
+- **Método:** `DELETE`
+
+#### Ejemplo
+
+```sh
+curl -X DELETE http://localhost:3000/tasks/1
+```
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Para contribuir, por favor sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
+3. Realiza tus cambios y haz commit (`git commit -m "Añadir nueva característica"`).
+4. Sube tu rama (`git push origin feature/nueva-caracteristica`).
+5. Abre un Pull Request.
+
+## Licencia
+
+Este proyecto está licenciado bajo la [MIT License](LICENSE).
