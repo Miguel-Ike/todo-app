@@ -6,18 +6,23 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto, UpdateTaskDto } from './dto/task.dto';
-import { Task } from './task.entity';
+import { Task, TaskStatus } from './task.entity';
 
 @Controller('tasks')
 export class TasksController {
   constructor(private tasksService: TasksService) {}
 
   @Get()
-  getAllTasks(): Promise<Task[]> {
-    return this.tasksService.getAllTasks();
+  getTasks(
+    @Query('search') search: string,
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 10,
+  ): Promise<Task[]> {
+    return this.tasksService.getTasksWithFilters(search, page, limit);
   }
 
   @Post()

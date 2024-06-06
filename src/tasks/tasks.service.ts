@@ -11,8 +11,26 @@ export class TasksService {
     private tasksRepository: Repository<Task>,
   ) {}
 
-  async getAllTasks(): Promise<Task[]> {
-    return this.tasksRepository.find();
+  async getTasksWithFilters(
+    search: string,
+    page: number,
+    limit: number,
+  ): Promise<Task[]> {
+    const query = this.tasksRepository.createQueryBuilder('task');
+
+    query.where('task.status = :status', { status: TaskStatus.PENDING });
+
+    if (search) {
+      query.andWhere(
+        '(LOWER(task.title) LIKE LOWER(:search) OR LOWER(task.description) LIKE LOWER(:search))',
+        { search: `%${search.toLowerCase()}%` },
+      );
+    }
+
+    query.skip((page - 1) * limit).take(limit);
+
+    const tasks = await query.getMany();
+    return tasks;
   }
 
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
