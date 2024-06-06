@@ -1,0 +1,122 @@
+[
+    {
+        "title": "Comprar leche",
+        "description": "Comprar leche en el supermercado"
+    },
+    {
+        "title": "Llamar a mamá",
+        "description": "Llamar a mamá para ver cómo está"
+    },
+    {
+        "title": "Hacer ejercicio",
+        "description": "Hacer una rutina de ejercicio de 30 minutos"
+    },
+    {
+        "title": "Leer un libro",
+        "description": "Leer al menos 20 páginas de un libro"
+    },
+    {
+        "title": "Enviar correos",
+        "description": "Enviar correos pendientes del trabajo"
+    },
+    {
+        "title": "Sacar la basura",
+        "description": "Sacar la basura antes de las 8 PM"
+    },
+    {
+        "title": "Estudiar programación",
+        "description": "Estudiar NestJS durante 1 hora"
+    },
+    {
+        "title": "Preparar la cena",
+        "description": "Preparar una cena saludable"
+    },
+    {
+        "title": "Organizar escritorio",
+        "description": "Organizar y limpiar el escritorio de trabajo"
+    },
+    {
+        "title": "Pagar facturas",
+        "description": "Pagar las facturas del mes"
+    },
+    {
+        "title": "Revisar correos electrónicos",
+        "description": "Revisar y responder correos electrónicos"
+    },
+    {
+        "title": "Planificar la semana",
+        "description": "Hacer un plan para la semana"
+    },
+    {
+        "title": "Leer noticias",
+        "description": "Leer las noticias del día"
+    },
+    {
+        "title": "Hacer la colada",
+        "description": "Lavar y doblar la ropa"
+    },
+    {
+        "title": "Salir a caminar",
+        "description": "Hacer una caminata de 30 minutos"
+    },
+    {
+        "title": "Jugar a un juego de mesa",
+        "description": "Jugar un juego de mesa con la familia"
+    },
+    {
+        "title": "Ver una película",
+        "description": "Ver una película nueva"
+    },
+    {
+        "title": "Llamar a un amigo",
+        "description": "Llamar a un amigo para ponerse al día"
+    },
+    {
+        "title": "Escribir en el diario",
+        "description": "Escribir las experiencias del día en el diario"
+    },
+    {
+        "title": "Meditar",
+        "description": "Meditar durante 20 minutos"
+    },
+    {
+        "title": "Planificar vacaciones",
+        "description": "Planificar las próximas vacaciones"
+    },
+    {
+        "title": "Hacer jardinería",
+        "description": "Trabajar en el jardín durante una hora"
+    },
+    {
+        "title": "Leer un artículo científico",
+        "description": "Leer un artículo científico interesante"
+    },
+    {
+        "title": "Preparar el almuerzo para mañana",
+        "description": "Preparar el almuerzo para llevar mañana"
+    },
+    {
+        "title": "Actualizar el CV",
+        "description": "Actualizar el currículum vitae"
+    },
+    {
+        "title": "Asistir a una clase en línea",
+        "description": "Asistir a una clase en línea sobre desarrollo web"
+    },
+    {
+        "title": "Organizar fotos",
+        "description": "Organizar las fotos digitales en carpetas"
+    },
+    {
+        "title": "Hacer un puzzle",
+        "description": "Completar un puzzle de 500 piezas"
+    },
+    {
+        "title": "Hacer un backup de datos",
+        "description": "Hacer un backup de los datos importantes"
+    },
+    {
+        "title": "Configurar un nuevo gadget",
+        "description": "Configurar y probar un nuevo gadget"
+    }
+]
