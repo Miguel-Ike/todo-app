@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TasksModule } from './tasks/tasks.module';
@@ -23,6 +25,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         synchronize: true, // No se recomienda en producción
       }),
       inject: [ConfigService],
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
     }),
     TasksModule,
   ],

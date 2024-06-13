@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My NestJS App</title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p><%= message %></p>
+    <ul>
+      <% tasks.forEach(task => { %>
+        <li><%= task.title %> - <%= task.description %> - <%= task.status %></li>
+      <% }) %>
+    </ul>
+</body>
+</html>

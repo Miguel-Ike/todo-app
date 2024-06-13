@@ -7,6 +7,7 @@ import {
   Post,
   Put,
   Query,
+  Render,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto, UpdateTaskDto } from './dto/task.dto';
@@ -16,7 +17,7 @@ import { Task, TaskStatus } from './task.entity';
 export class TasksController {
   constructor(private tasksService: TasksService) {}
 
-  @Get()
+  @Get('json')
   getTasks(
     @Query('search') search: string,
     @Query('page') page: number = 1,
@@ -41,5 +42,24 @@ export class TasksController {
   @Delete(':id')
   deleteTask(@Param('id') id: string): Promise<void> {
     return this.tasksService.deleteTask(id);
+  }
+
+  @Get()
+  @Render('index')
+  async renderTasks(
+    @Query('search') search: string,
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 10,
+  ) {
+    const tasks = await this.tasksService.getTasksWithFilters(
+      search,
+      page,
+      limit,
+    );
+    return {
+      title: 'NestJS Task List',
+      message: 'Tasks fetched successfully',
+      tasks,
+    };
   }
 }
